@@ -13,6 +13,7 @@ public class BinaryTree {
 
     // метод вставки элементов в дерево
     public BinaryTree insertNode(BinaryTree node, int targetValue){
+        // создается дерево если структуры нет
         if (node == null){
             node = new BinaryTree(targetValue);
             return node;
@@ -40,6 +41,30 @@ public class BinaryTree {
         }
         // значения совпали
         return null;
+    }
+
+    // вывод дерева на экран
+    public void printLeftTree(BinaryTree node, int level){
+        if (node != null){
+            // Левосторонний обход
+            printLeftTree(node.lchild, level+1);
+//            for(int i = 0; i < level; i++)
+//                System.out.print("   ");
+            System.out.println(node.value);
+            printLeftTree(node.rchild, level+1);
+        }
+    }
+
+    // вывод дерева на экран
+    public void printRightTree(BinaryTree node, int level){
+        if (node != null){
+            // Левосторонний обход
+            printRightTree(node.rchild, level+1);
+//            for(int i = 0; i < level; i++)
+//                System.out.print("   ");
+            System.out.println(node.value);
+            printRightTree(node.lchild, level+1);
+        }
     }
 
 }
